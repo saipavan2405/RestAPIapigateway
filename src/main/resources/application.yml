@@ -1,0 +1,31 @@
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://localhost:8079/eureka
+
+logging:
+  level:
+    root: INFO
+
+zuul:
+  prefix: /api
+  routes:
+    user-app:
+      path: /customer/v1/user/**
+      serviceId: USER-APP
+    score-app:
+      path: /customer/v1/score/**
+      serviceId: SCORE-APP
+
+
+spring:
+  application:
+    name: apigateway
+
+server:
+  port: 1111
+
